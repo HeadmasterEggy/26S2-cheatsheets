@@ -1,0 +1,236 @@
+% INFO6007 — Project Management in IT — Exam Cheatsheet (S2 2026)
+% One A4 sheet, double-sided (restricted open book). Page 1: W1–W6. Page 2: W7–W12 + exam toolkit.
+% Compile: pdflatex INFO6007_cheatsheet.tex  (must stay at 2 pages)
+\documentclass[a4paper,landscape]{article}
+\usepackage{xcolor}
+\usepackage[top=5mm,bottom=5mm,left=6mm,right=6mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.6mm,topsep=0pt,itemsep=0pt,parsep=0pt,label=\textbullet}
+\setlength{\columnsep}{7pt}
+\setlength{\parindent}{0pt}
+\binoppenalty=50
+\relpenalty=50
+\emergencystretch=1.5em
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+
+% ---- colour commands (same macros as the COMP5270 sheet) ----
+\newcommand{\hlhighlight}[1]{%
+    \begingroup
+        \setlength{\fboxsep}{0pt}
+        \colorbox{yellow}{\strut\textbf{#1}}%
+    \endgroup
+}
+\newcommand{\sectitle}[1]{\textbf{#1}}
+\newcommand{\concept}[1]{\textbf{#1}}
+\newcommand{\lbl}[1]{\textbf{#1}}
+\definecolor{keyhlcolor}{HTML}{FFEB7A}
+\newcommand{\kh}[1]{{\setlength{\fboxsep}{0.5pt}\colorbox{keyhlcolor}{#1}}}
+\newcommand{\ra}{$\rightarrow$}
+
+\newcommand{\PONE}{\fontsize{6.1pt}{6.45pt}\selectfont}
+\newcommand{\PTWO}{\fontsize{6.8pt}{7.15pt}\selectfont}
+
+\begin{document}
+\PONE
+\sloppy
+
+%=====================================================================
+%  PAGE 1 — WEEKS 1–6
+%=====================================================================
+\begin{multicols}{3}
+\PONE
+
+\hlhighlight{Exam · format \& how to answer}
+\begin{itemize}
+\item \concept{Format:} 4 scenario Qs $\times$ 15 = 60 marks, 2 h + 10 min reading; each Q has 3 sub-parts (4--6 marks). Scope = lectures + tutorials (readings/guest lecture not directly tested). Hurdle: \kh{$\ge$40\% on exam} and $\ge$50 overall.
+\item \concept{Answer pattern (every sub-part):} \kh{Define \ra\ Apply to scenario} \kh{\ra\ Recommend \ra\ Justify}. Use the case's names/numbers; one point per mark; state \lbl{assumptions}; for calculations show formula, substitution, result, then \lbl{interpret} in words + \lbl{action}. Verbs: \emph{explain} = why/how; \emph{evaluate/critically assess} = strengths + weaknesses + verdict; \emph{recommend} = pick one + justify; \emph{compare} = side-by-side on the named criteria.
+\end{itemize}
+
+\hlhighlight{W1 · Projects, success, triple constraint}
+\begin{itemize}
+\item \concept{Project} (PMBOK): \kh{temporary effort} to create a \kh{unique product, service or result}; clear start/end, specific objectives, constrained by scope/time/cost/resources. \concept{Operations} = ongoing, repetitive (bug fixes, user queries, BAU support) \ra\ ITSM. Weekly new features after go-live with no end = scope creep / should be a new project or product backlog with own funding.
+\item \concept{PM} = applying knowledge, skills, tools \& techniques to project activities to meet requirements. Elements: scope, time, cost, quality, risk, communication, resources.
+\item \concept{Why IT projects are hard:} evolving requirements, intangible outcomes, hidden integration complexity, decisions before full info, rapid tech change. \lbl{Failure patterns:} volatile reqs, underestimated integration, optimism bias, business--IT misalignment, weak governance/decision rights, low stakeholder involvement.
+\item \concept{Triple constraint:} scope $\uparrow$ \ra\ time and/or cost $\uparrow$; time $\downarrow$ \ra\ cost $\uparrow$ or scope $\downarrow$; budget $\downarrow$ \ra\ scope $\downarrow$ or time $\uparrow$ or quality/risk hit. Quality sits in the middle: \kh{never let quality be the hidden constraint} that absorbs a change. Tut: deliver smaller first release, stage new features, or formally revise baseline.
+\item \concept{Success} $\ne$ only on time/on budget: + quality, stakeholder satisfaction, business value / benefits realisation, user adoption, strategic alignment, team performance, sustainability. Misconceptions: ``on time \& budget = success''; ``all success is immediate''. Set \lbl{measurable success criteria at initiation} (e.g.\ adoption $\ge$70\% in 3 months, processing time $-$50\%), agreed by sponsor + key users, recorded in charter; benefits owner measures after closure.
+\item \concept{Project / Program / Portfolio:} project = tactical, one output (PM); \lbl{program} = related projects coordinated for benefits not available separately (program mgr; interdependencies); \lbl{portfolio} = projects + programs selected for strategic goals (portfolio mgr / PMO; investment \& prioritisation).
+\item \concept{Sunk cost:} money already spent is irrelevant to go/no-go; decide on \kh{future costs vs future benefits}. Terminated project still needs closure: accept/handover completed work, close contracts, release resources, archive, \lbl{lessons learned}.
+\end{itemize}
+
+\hlhighlight{W2 · Lifecycle \& methodologies}
+\begin{itemize}
+\item \concept{Lifecycle:} Initiation (charter, approved) \ra\ Planning (PM plan) \ra\ Execution (deliverables) \ra\ Monitoring \& Controlling (status reports, change control; runs alongside execution) \ra\ Closure (final report, lessons learned, sign-off). Skipping initiation (building prototypes before charter) \ra\ no authorised budget, unknown stakeholders, no agreed scope.
+\item \concept{Waterfall:} linear; Reqs \ra\ Design \ra\ Code \ra\ Test \ra\ Deploy \ra\ Maintain. + simple, clear milestones \& documentation, fixed scope, compliance/audit, outsourced handoffs, fixed-price contracts. $-$ inflexible, late testing finds problems late, costly change. \lbl{Planning} upfront \& detailed; \lbl{stakeholders} at start and end; \lbl{change} via formal CR, expensive.
+\item \concept{Agile} = mindset; iterative, incremental, working software each sprint; customer collaboration \& responding to change. \lbl{Planning} rolling per sprint; \lbl{stakeholders} continuous (reviews/demos); \lbl{change} welcomed via backlog reprioritisation. Risk: scope drift, weak documentation, stakeholder fatigue.
+\item \concept{Scrum:} sprints 1--4 wk; \lbl{roles} Product Owner (backlog, priority), Scrum Master (coach, removes blockers), Dev team (cross-functional); \lbl{artefacts} product backlog, sprint backlog, increment; \lbl{events} sprint planning, daily stand-up (15 min), review (demo), retrospective.
+\item \concept{Kanban:} continuous flow, board To Do/Doing/Done, \kh{WIP limits}, cycle time, pull when capacity; no fixed roles; change anytime \ra\ support/ops ticket streams. \concept{DevOps:} Dev+Ops; CI/CD, IaC, automated testing \& monitoring, faster reliable releases (+DevSecOps, MLOps, FinOps...).
+\item \concept{Hybrid (water-scrum-fall):} Waterfall for compliance, requirements sign-off, procurement milestones; Agile for build \& feedback. Fits regulated health/gov apps. Program with Scrum team + Kanban ops + Waterfall hardware rollout = hybrid; coordinate via shared roadmap/milestones, integration manager, program-level board \& sync meetings.
+\item \lbl{Pick:} fixed legislation, fixed-price, audit \ra\ Waterfall; uncertain features, user feedback, start-up \ra\ Agile/Scrum; staged release + later features (e.g.\ uni app) \ra\ Agile (core first).
+\end{itemize}
+
+\hlhighlight{W2 · Requirements, initiation, charter, stakeholders}
+\begin{itemize}
+\item \concept{Why requirements matter:} product meets needs, reduces scope creep \& rework (defects from undocumented expectations), basis for design/test/estimates. \concept{Techniques:} interviews (depth, 1:1), surveys (many users fast), workshops/JAD (reconcile conflicts), observation (real workflow, busy staff), document analysis (existing manuals), prototyping (refine vague needs), focus groups. Busy staff + 5 clinics + outdated manual \ra\ observation + short interviews + one workshop + prototype tested with elderly/limited-English users.
+\item \concept{Functional} = what system does (view usage, generate report). \concept{Non-functional} = how well: performance, availability, security, usability, scalability, accessibility. \kh{Good req: specific, measurable, testable, unambiguous} --- ``fast and user friendly'' is bad \ra\ ``dashboard loads $\le$3 s with 25{,}000 concurrent users''; ``99.95\% monthly availability''; ``new user books in $\le$3 clicks, SUS $\ge$75''. \lbl{QB Q11:} view usage (a) \& admin report (d) = functional; 3 s @25k users (b) = performance/scalability; encryption (c) = security; 99.95\% (e) = availability/reliability. Verify (b) by load/stress test at 25k simulated users (evidence: p95 response report); (e) by uptime monitoring over a month (evidence: SLA availability report). Costliest usually (e) or (b) at peak weather events \ra\ redundancy/auto-scaling; balance by phasing, cloud elasticity, negotiating target (99.9\%), MoSCoW.
+\item \concept{Conflicts} (finance 5-step vs ops 1-step): workshop with both, link to business rules/risk, sponsor decides, \lbl{MoSCoW} prioritisation, configurable rule (e.g.\ 1 step $<$\$X, multi-step above).
+\item \concept{Traceability (RTM):} links each requirement \ra\ source \ra\ design \ra\ test case \ra\ acceptance; spots gold-plating \& missing reqs, supports scope control, impact analysis \& test coverage. \lbl{Baseline} = signed-off requirements; validate with walkthroughs/prototypes/UAT criteria.
+\item \concept{Initiation activities:} business need, objectives, high-level scope, stakeholders, appoint PM, \lbl{project charter}, high-level budget/timeline, feasibility \& initial risks, strategic alignment. Tools: expert judgement, business case, SWOT, workshops.
+\item \concept{Project charter} = formally authorises project, gives PM authority to use resources. Contains: purpose/business case, objectives \& success criteria, high-level scope/deliverables, milestones, budget, key stakeholders, sponsor, risks/assumptions/constraints, approval.
+\item \concept{Stakeholder} = anyone who affects or is affected. Process: identify \ra\ analyse (power/interest/influence) \ra\ prioritise \ra\ engage \ra\ monitor. \kh{Power/Interest grid:} high P + high I = \lbl{manage closely}; high P + low I = \lbl{keep satisfied}; low P + high I = \lbl{keep informed}; low P + low I = \lbl{monitor}.
+\end{itemize}
+
+\hlhighlight{W3 · Scope management (6 processes)}
+\begin{itemize}
+\item \concept{Plan scope mgmt} \ra\ \concept{Collect requirements} (reqs doc + RTM) \ra\ \concept{Define scope} (scope statement) \ra\ \concept{Create WBS} \ra\ \concept{Validate scope} \ra\ \concept{Control scope}. Scope mgmt = all the work and \emph{only} the work required.
+\item \concept{Scope statement:} product description, deliverables, \lbl{inclusions/exclusions}, acceptance criteria, assumptions, constraints. A one-paragraph statement with no acceptance criteria \ra\ ``doesn't do what we expected'' dispute.
+\item \concept{WBS:} \kh{deliverable-oriented hierarchical decomposition} of the total scope; levels \ra\ \lbl{work packages} (lowest; one owner, estimate, testable output). Backbone for activity list, schedule, cost estimates, resources, risk ID, responsibility. Rules: each unit of work in one place only (\emph{no double-counted data migration}); parent = sum of children (100\% rule); one accountable owner per item; team builds it; every item in \lbl{WBS dictionary} (description, owner, deliverable, acceptance, estimate). Approaches: guidelines, analogy, top-down, bottom-up, mind-map. \lbl{Phase-based} WBS (Reqs/Design/Build/Test) follows lifecycle; \lbl{deliverable-based} (Portal/Integration/Training...) makes ownership \& completeness clearer. \concept{Scope baseline} = scope statement + WBS + WBS dictionary \ra\ protects against ``not our work'' disputes.
+\item \concept{Validate scope} = \kh{formal acceptance of deliverables by customer/sponsor} (inspection, sign-off; outputs accepted deliverables, CRs). \concept{Control scope} = monitor scope vs baseline, manage changes via variance analysis \& \lbl{integrated change control}. (Validate = acceptance/\emph{right thing}; Control = managing changes; QC = correctness.)
+\item \concept{Scope creep} = \kh{uncontrolled growth of scope} without adjusting time, cost, resources (e.g.\ devs add features w/o impact assessment or approval). Consequences: delay, budget overrun, rushed testing \ra\ lower quality, burnout, stakeholder conflict. Causes: vague scope, no change control, weak stakeholder engagement, gold-plating. Controls: \lbl{formal change control} (log CR \ra\ impact on scope/time/cost/quality/risk \ra\ CCB/sponsor approve/defer/reject \ra\ update baseline/WBS/RTM \ra\ communicate), clear scope statement, RTM, sign-offs per stage, regular scope reviews, defer to later release/backlog.
+\end{itemize}
+
+\hlhighlight{W3--4 · Schedule management}
+\begin{itemize}
+\item \concept{6 processes:} plan schedule mgmt \ra\ define activities (from work packages) \ra\ sequence activities \ra\ estimate durations \ra\ develop schedule (CPM, baseline) \ra\ control schedule (SPI/SV, compression).
+\item \concept{Dependencies:} \lbl{mandatory} (hard logic, inherent: build before test; licence before deploy), \lbl{discretionary} (soft logic, preference/best practice: design after procurement --- can be changed to fast-track, raising risk), \lbl{external} (outside team control: vendor, gov agency, licence), \lbl{internal} (within team). A dep can be mandatory+external.
+\item \concept{Relationships (PDM):} FS (most common), SS, FF, SF (rare). \concept{Lead} = successor starts before predecessor finishes (speeds up; e.g.\ testers write scripts while C in progress = SS or FS with lead); \concept{lag} = wait after predecessor (slows). Gantt: overlapping bars/bar shifted left = lead.
+\item \concept{Network diagrams:} AON (nodes = activities, most used), AOA (arrows = activities, may need dummies), PDM. \concept{Gantt} = bars vs time, best for communicating timeline \& progress; \lbl{network diagram} shows logic/dependencies \& critical path.
+\item \concept{CPM:} \kh{critical path = longest path} = shortest project duration; \kh{zero float}; delay on it delays project. Forward pass ES/EF (EF=ES+d, take max of preds), backward pass LS/LF (take min of succs); \kh{Total float = LS $-$ ES = LF $-$ EF}. Delay $\le$ float \ra\ no end-date change; delay $>$ float \ra\ project slips by (delay $-$ float) and path may become critical. \lbl{QB Q16:} A3, B5(A), C4(A), D6(B), E2(C), F3(D,E): paths A-B-D-F = 17, A-C-E-F = 12 \ra\ \kh{CP A-B-D-F, 17 d}; float C = E = 5; C late 3 d \ra\ no change.
+\item \concept{Estimating:} \lbl{analogous} (top-down, historical, fast, less accurate, early phase), \lbl{parametric} (unit rate $\times$ units), \lbl{bottom-up} (work packages rolled up; most accurate, slow), \lbl{three-point/PERT}, expert judgement; rolling-wave for later phases.
+\item \concept{PERT:} \kh{$t_E=(O+4M+P)/6$}, $\sigma=(P-O)/6$. Practice: O=4, M=7, P=16 \ra\ $(4+28+16)/6=$ \kh{8 days}, $\sigma=2$. Useful: weights uncertainty, exposes risk range. Limit: still an estimate --- skewed toward pessimistic (16), only $\sim$50\% chance of $\le$8 d; commit to $t_E+\sigma$ to $+2\sigma$ (10--12 d) or add buffer; depends on quality of O/M/P guesses.
+\item \concept{Compression:} \kh{crashing} = add resources to \lbl{critical} activities (cost $\uparrow$; pick cheapest cost/day; crashing non-critical activity with float is waste). \kh{Fast tracking} = run sequential activities in parallel (risk/rework $\uparrow$, cost ~same). Scope reduction (MVP) or accept late date are \emph{not} compression. \lbl{Brooks' law:} adding contractors late \ra\ ramp-up (1 wk learning) + communication overhead ($n(n-1)/2$ channels) may slow further.
+\end{itemize}
+
+\hlhighlight{W4 · Cost management \& EVM}
+\begin{itemize}
+\item \concept{4 processes:} plan cost mgmt \ra\ estimate costs \ra\ determine budget \ra\ control costs. Cost types: tangible/intangible, \lbl{direct} (devs, licences) / \lbl{indirect} (overhead, office), \lbl{sunk} (ignore).
+\item \concept{Reserves:} \lbl{contingency} = known-unknowns (identified risks), \emph{inside} cost baseline, PM uses; \lbl{management} = unknown-unknowns, \emph{outside} baseline, needs sponsor approval. \kh{Cost baseline = estimates + contingency}; \kh{Budget = baseline + management reserve}. Baseline = approved time-phased budget (= cumulative PV, S-curve).
+\item \concept{Estimating pitfalls:} underestimating integration/testing/maintenance, hidden costs (training, licences, cloud consumption, security, vendor support), optimism, currency. Benchmarks (\$/user migrated, sprint cost).
+\item \concept{EVM:} PV = budgeted cost of work \emph{planned}; EV = budgeted cost of work \emph{performed} (\%complete $\times$ BAC); AC = actual cost.
+\item \kh{CV = EV $-$ AC} (+ under budget); \kh{SV = EV $-$ PV} (+ ahead); \kh{CPI = EV/AC}; \kh{SPI = EV/PV} ($<1$ bad); \kh{EAC = BAC/CPI} (trend continues); EAC = AC + (BAC $-$ EV) (variance atypical); EAC = AC + (BAC$-$EV)/(CPI$\times$SPI); ETC = EAC $-$ AC; \kh{VAC = BAC $-$ EAC}; TCPI = (BAC$-$EV)/(BAC$-$AC).
+\item \lbl{Practice Q4a:} PV 300k, EV 240k, AC 320k \ra\ \kh{SPI 0.80} (80\% of planned progress, behind), \kh{CPI 0.75} (\$0.75 value per \$1, over budget); SV $-$60k, CV $-$80k. \lbl{QB Q22:} BAC 500k, PV 270k, EV 200k, AC 230k \ra\ SV $-$70k, CV $-$30k, SPI 0.74, CPI 0.87, EAC 575k, VAC $-$75k. \lbl{QB Q23:} A (SPI 1.10, CPI 0.80) ahead but overspending --- likely crashing/overtime; B (SPI 0.80, CPI 1.10) behind but cheap --- under-resourced; concern depends on whether B's slip is on critical path / deadline fixed vs budget fixed.
+\item \concept{Corrective actions:} root cause (integration, change requests, resource churn, vendor delay, cloud sprawl), scope triage/defer low-value, reallocate senior devs to critical path, enforce change control, renegotiate vendor, reforecast; compression only if schedule matters more than cost (crashing worsens CPI).
+\item \concept{Agile cost:} fund per sprint/release (time \& cost fixed, \lbl{scope flexible}), burn-up/down, velocity; EVM hard (PV unstable, story points $\ne$ \$) \ra\ EBV, map points to cost via burn rate, re-forecast EAC each iteration; still keep contingency.
+\end{itemize}
+
+\hlhighlight{W5 · Quality management}
+\begin{itemize}
+\item \concept{Quality} = \kh{degree to which inherent characteristics} fulfil requirements: conformance to requirements + fitness for use + customer satisfaction. Dimensions: functionality, reliability, performance, usability, maintainability, security. Principles: customer focus, \lbl{prevention over inspection}, continuous improvement, fact-based decisions.
+\item \concept{3 processes:} \lbl{Plan quality} (standards, metrics, roles, QA/QC activities \ra\ QMP) \ra\ \lbl{Manage quality = QA} (\emph{process}, preventive: process audits, peer/code reviews, design walkthroughs, retrospectives, coding standards, static analysis, PDCA/DMAIC) \ra\ \lbl{Control quality = QC} (\emph{product}, reactive: testing, inspection, defect logging, compare to metrics, accept/conditional/reject). \kh{QA = right process; QC = right output.} \lbl{Verification} = built it right (spec); \lbl{validation} = built the right thing (user needs).
+\item \concept{Testing:} unit, integration, system, \lbl{UAT}, performance/load (peak enrolment case: passed all planned tests but no load test with realistic concurrency \ra\ planning failure), security, regression; alpha (controlled env) / beta (real users).
+\item \concept{Tools:} cost-benefit, \lbl{cause-and-effect/Ishikawa} (root causes: people, process, tools, environment, data), \lbl{control chart} (process stable? UCL/LCL, trends), checksheet (tally defects), flowchart (process gaps), scatter (correlation), histogram (frequency), \lbl{Pareto} (\kh{80/20}: fix vital few causes first).
+\item \concept{Standards:} ISO 9001 (QMS), ISO/IEC 27001 (infosec), CMMI 1 Initial \ra\ 2 Managed \ra\ 3 Defined \ra\ 4 Quant.\ managed \ra\ 5 Optimising; ITIL; Lean (cut waste), Six Sigma (cut variation, DMAIC).
+\item \concept{Cost of quality:} \kh{CoC = prevention + appraisal} (training, reviews, automated tests, audits); \kh{CoNC = internal failure + external failure} (rework, bug fixes before release; downtime, complaints, penalties after). Tut: skip \$2k prevention \ra\ risk \$20k external failure \ra\ invest in prevention. More testers at end = QC/appraisal; standards + reviews + automated checks early = QA/prevention (cheaper).
+\item \concept{Deming:} build quality into process, cease dependence on inspection, drive out fear, break barriers, training, constancy of purpose, everyone's job. \concept{Juran:} top-management commitment; 10 steps (awareness, goals, organise, resources, train, act, report, recognise, communicate, maintain momentum).
+\item \lbl{QB Q6:} 1750 scans, 105 fail \ra\ pass $=1645/1750=$ \kh{94\% $<$ 97\%} \ra\ reject batch. QA: agreed scanning standards + supplier process audit/calibration; QC: sample inspection of each batch vs resolution spec.
+\end{itemize}
+
+\hlhighlight{W6 · Resource management, people \& teams}
+\begin{itemize}
+\item \concept{6 processes:} plan resources \ra\ estimate activity resources \ra\ acquire (internal, external hire/contractor, procurement, multi-source) \ra\ \lbl{develop team} \ra\ \lbl{manage team} \ra\ control resources. Human + physical (servers, cloud, licences, devices).
+\item \concept{RACI:} \lbl{R}esponsible (does work), \lbl{A}ccountable (\kh{exactly one}, approves), \lbl{C}onsulted (two-way, before), \lbl{I}nformed (one-way, after). e.g.\ ``approve design change'': A = PM/design authority; R = lead architect; C = senior engineers, contractors' lead, security; I = team, sponsor \ra\ removes who-approves confusion. \concept{RBS} = resources by category (Human/Equipment/Software/Materials \ra\ roles \ra\ named items).
+\item \concept{Resource histogram} = allocation per period, shows over-allocation. \concept{Loading} = allocated/available hours (Dev1 50/40 = 125\% over; Dev2 30/40 under). \kh{Levelling} = resolve over-allocation by delaying/splitting/reassigning tasks --- \lbl{may extend finish date / change critical path}. \kh{Smoothing} = adjust only within float, end date fixed. Lead dev 160\% on critical path + idle testers: reassign suitable tasks (testers do test prep, code review), add contractor, overtime short-term, split tasks; risks = skill gaps, burnout, ramp-up.
+\item \concept{Leadership styles:} autocratic/directive (fast, crises, \emph{new inexperienced staff need clear direction}), democratic/participative (engagement, slower), laissez-faire (\emph{experienced experts want autonomy}), transformational, transactional, servant, \lbl{situational/adaptive} --- \kh{match style to team maturity}: directive for novices + coaching, delegating for experts (one-size directive = demotivates seniors, stifles creativity).
+\item \concept{Motivation:} intrinsic vs extrinsic; \lbl{Maslow} (physiological \ra\ safety \ra\ belonging \ra\ esteem \ra\ self-actualisation); \lbl{Herzberg} hygiene (salary, policy, conditions, security --- absence dissatisfies) vs motivators (achievement, recognition, responsibility, growth --- create motivation); Covey 7 habits (win-win, seek first to understand, synergise).
+\item \concept{Tuckman:} \kh{Forming \ra\ Storming \ra\ Norming} \kh{\ra\ Performing \ra\ Adjourning}. \lbl{New members join a performing team \ra\ team regresses to forming/storming} (disputes over working practices, slower delivery) --- sponsor's ``experienced team needs no support'' is wrong. Intervention: onboarding + team charter/working agreements workshop, pair new devs with mentors, clarify RACI, retrospective; PM as facilitator/coach.
+\item \concept{Conflict modes:} competing (win-lose; urgent, critical), \lbl{collaborating} (win-win; complex, important, time available --- best for technical-direction clash), compromising (partial; time pressure), avoiding (trivial/emotions high), accommodating (preserve relationship). Lencioni dysfunctions: absence of trust, fear of conflict, lack of commitment, avoidance of accountability, inattention to results.
+\item \concept{Agile resources:} capacity planning per sprint, cross-functional self-managing teams, watch WIP/burnout, rebalance each sprint.
+\end{itemize}
+
+\end{multicols}
+
+\newpage
+%=====================================================================
+%  PAGE 2 — WEEKS 7–12 + EXAM TOOLKIT
+%=====================================================================
+\begin{multicols}{3}
+\PTWO
+
+\hlhighlight{W7 · Risk management}
+\begin{itemize}
+\item \concept{Risk} = \kh{uncertain event/condition} that, if it occurs, has a \kh{+ or $-$ effect} on objectives. Threats vs opportunities. Categories: market, financial, technology, people, structure/process. \lbl{Risk vs issue:} risk = may happen (future); issue = has happened.
+\item \concept{Risk appetite} = uncertainty an org is willing to accept (startup high vs government/museum/bank low); culture risk-averse / neutral / seeking; \lbl{utility}: averse prefers certain lower payoff, neutral uses EMV only, seeking gambles. Appetite must match culture.
+\item \concept{6 processes:} plan risk mgmt (roles, scales, thresholds, reserves, cadence) \ra\ \lbl{identify} (brainstorming, \lbl{Delphi} = anonymous expert rounds, interviews, SWOT, checklists, RBS) \ra\ \lbl{qualitative} (probability $\times$ impact matrix \ra\ High/Med/Low priority) \ra\ \lbl{quantitative} (EMV, decision tree, Monte Carlo = thousands of simulated runs \ra\ probability of meeting date/budget) \ra\ plan \& implement responses \ra\ monitor (triggers, residual \& secondary risks, new risks).
+\item \concept{Threat responses:} \kh{Avoid} (change plan/scope to eliminate), \kh{Mitigate} (reduce P or I --- extra testing, pilot, training), \kh{Transfer} (insurance, fixed-price contract, vendor SLA penalties --- risk still exists, owner changes), \kh{Accept} (active = contingency reserve/fallback; passive), \kh{Escalate} (outside project authority \ra\ program/portfolio/exec, e.g.\ company-wide cyber, regulatory change). \concept{Opportunities:} exploit (make it happen), enhance (raise P/I), share (partner), accept, escalate.
+\item \concept{EMV} = \kh{probability $\times$ impact}; decision tree: choose option with best EMV (lowest expected cost). \lbl{Practice Q3b:} no extra test = $0.25\times120\text{k}=$ \kh{\$30k}; with test = $24\text{k}+0.10\times120\text{k}=$ \kh{\$36k} \ra\ testing costs \$6k more in expectation \ra\ \lbl{do not approve on EMV alone} (unless risk-averse: reputational/regulatory impact, \$120k worst case). \lbl{QB Q25:} vendor outage $0.3\times200\text{k}=60\text{k}$ (mitigate/transfer: SLA, rollback, cutover rehearsal), engineer $0.5\times40\text{k}=20\text{k}$ (mitigate: knowledge transfer, cross-train, retention), regulation $0.1\times500\text{k}=50\text{k}$ (monitor/escalate, design for compliance) \ra\ rank 60k $>$ 50k $>$ 20k; \lbl{contingency} $\approx$ sum EMV (130k). Limits: P \& I are guesses, average not worst case, ignores risk appetite \& interdependence, low-P high-I events underweighted.
+\item \concept{Risk register:} ID, description (cause-event-effect), category, P, I, score/priority, \lbl{owner}, response strategy \& actions, trigger, contingency/fallback, residual risk, status. Living doc.
+\item \concept{Communication:} tailor --- execs summaries, team detailed logs, users practical guidance; transparent (NHS NPfIT \textsterling12bn abandoned 2011: risks hidden, clinicians not engaged). \concept{Agile risk:} reviews each sprint/retro, risky items early (fail fast), risk burn-down, shared ownership; hybrid = register + adaptive.
+\item \lbl{Practice Q2c:} incomplete payment integration testing \ra\ \lbl{mitigate}: complete end-to-end tests before go-live, rollback plan; or \lbl{avoid}: delay launch / launch without online payment. Half of staff untrained \ra\ \lbl{mitigate}: extra/short sessions, job aids, floor-walkers/super-users, prioritise front-line staff before peak.
+\end{itemize}
+
+\hlhighlight{W8 · Procurement \& outsourcing}
+\begin{itemize}
+\item \concept{3 processes:} \lbl{plan} (what/how/when/who; make-or-buy; SOW; contract type; criteria) \ra\ \lbl{conduct} (RFP/RFQ out, bidder conference, proposals, evaluate, negotiate, award) \ra\ \lbl{control} (monitor performance/SLAs, formal change, \kh{verify/accept before payment}, disputes, close contract).
+\item \concept{Make-or-buy factors:} cost (upfront vs recurring licence, TCO), time-to-market, quality, expertise/skills, control \& confidentiality/IP, customisation/flexibility, strategic importance/core competence, vendor lock-in \& support, risk. \lbl{Practice Q3c:} make = full customisation \& control but limited experience \ra\ schedule/quality risk; buy = sooner, proven, vendor support but licence fees + less flexibility + lock-in. Typical rec: \kh{buy} if non-core and deadline matters (negotiate config/API, exit clauses) --- state assumptions.
+\item \concept{SOW} = description of work, deliverables, timeline, standards, \lbl{acceptance criteria} (legal reference, reduces scope creep). \concept{RFP} = complex need, vendors propose solutions (eval: quality, approach, capability + price). \concept{RFQ} = well-defined standard items (tablets, licences), price/delivery driven.
+\item \concept{Contracts:} \kh{Fixed price} (FFP, FPIF, FP-EPA) --- buyer risk low, seller high; needs clear scope; changes expensive. \kh{Cost-reimbursable} (CPFF, CPIF, CPAF) --- buyer risk high; R\&D/uncertain. \kh{Time \& materials} --- medium; staff augmentation, uncertain integration (use caps, reviews).
+\item \concept{Vendor evaluation:} \lbl{mandatory pass/fail checklist first} (certs, insurance, security --- catering case = checklist), then \lbl{weighted scoring} ($\Sigma$ score$\times$weight; e.g.\ A 3.95 vs B 3.90 --- check evidence/references when close), \lbl{scorecard} for ongoing KPIs (on-time \%, defect rate).
+\item \concept{Supplier dispute (QB Q6.2):} refer to contract/SOW acceptance criteria (97\% pass) \ra\ \lbl{withhold payment} for non-conforming items / pay only accepted; issue formal notice + defect evidence; require rework at supplier cost (in-scope defect, not a change); escalate per contract; keep relationship via joint review meeting, recovery plan, scorecard. New feature request = \lbl{change control} (assess, approve, update contract/SOW) --- different from fixing a defect.
+\item \concept{Outsourcing:} complete/partial, BPO, IT; onshore, nearshore, offshore, hybrid, multisource; insourcing = opposite. + cost, expertise, speed, focus on core; $-$ communication/time zones, quality control, confidentiality, dependency, hidden costs. Governance: strategic alignment, contract mgmt, roles, escalation, KPIs. Procurement risks: cost, schedule, quality, legal/IP, operational \ra\ fixed price, liquidated damages, strict acceptance criteria, backup supplier, knowledge transfer \& code/doc access.
+\end{itemize}
+
+\hlhighlight{W9 · Leadership, communication, governance, alignment}
+\begin{itemize}
+\item \concept{Leadership} (people, vision, inspire, long-term) vs \concept{management} (tasks, plan, control, short-term efficiency). Styles: transformational, transactional, autocratic, laissez-faire, \lbl{adaptive/agile} (situational), servant (Scrum). Skills: communication, EI, negotiation, decision-making, stakeholder mgmt.
+\item \concept{Communication mgmt (3):} plan (who needs what, channel, frequency, owner, 2-way feedback) \ra\ manage (distribute, store) \ra\ monitor (effectiveness, gaps, adjust). Channels $=n(n-1)/2$. Weekly report for routine; urgent security issue straight to sponsor + security lead.
+\item \concept{Governance} = framework of policies, roles, decision rights, processes to direct \& control projects. \lbl{Structure:} \kh{Sponsor} (champions, funds, ultimate accountability, resolves escalations), \kh{Steering committee} (senior reps; approves charter/business case, major changes, monitors, resolves conflicts, confirms benefits), \kh{PMO} (standards, templates, KPIs, training, support). \lbl{Mechanisms:} stage/phase-gate reviews (go/kill), dashboards, escalation paths, decision frameworks, audits, change control board. Scale to project size. Challenges: unclear decision rights, stakeholders excluded, poor info, weak escalation.
+\item \concept{Alignment} = project goals fit strategy: strategic, business-IT, stakeholder, team. \lbl{SAM} (Henderson \& Venkatraman): 4 domains business strategy, IT strategy, org infrastructure \& processes, IT infrastructure \& processes; strategic fit + functional integration. \lbl{Balanced Scorecard:} financial (ROI, cost), customer (satisfaction, adoption), internal process (cycle time, downtime, errors), learning \& growth (skills, training). \lbl{Value streams} (operational vs development). Also COBIT, ITIL, TOGAF.
+\item \kh{Leadership drives people}, \kh{governance sets rules}, \kh{alignment picks the right game}; failures reinforce each other (poor leader \ra\ misalignment; weak governance \ra\ delayed decisions; misalignment \ra\ conflict).
+\end{itemize}
+
+\hlhighlight{W10 · Integration \& change management}
+\begin{itemize}
+\item \concept{Integration} = ``glue'' coordinating all knowledge areas across lifecycle. \kh{7 processes:} develop charter; develop PM plan; direct \& manage work; manage knowledge (lessons learned); monitor \& control work; \lbl{perform integrated change control}; close project/phase. PMBOK = 5 process groups $\times$ 10 knowledge areas (Integration, Scope, Schedule, Cost, Quality, Resource, Comms, Risk, Procurement, Stakeholder).
+\item \concept{Integrated change control:} CR logged \ra\ assess impact across scope/time/cost/quality/risk/resources \ra\ options (defer to release 2, trade-off, extra funding) \ra\ \lbl{CCB}/sponsor decision \ra\ update baselines \& plans \ra\ communicate. Security fix 2 wks before launch \ra\ \kh{assess impacts, compare options,} \kh{submit recommended change for approval} (not unilateral).
+\item \concept{Closure:} formal acceptance, close contracts (verify obligations, final payment), release resources, lessons learned, archive, \lbl{handover to operations/ITSM}, final report, benefits tracking.
+\item \concept{Change management} (people side): project = ``did we deliver it well?''; change = ``\kh{are people using it?}''. Success = delivery + adoption. Kübler-Ross curve (shock/denial \ra\ anger \ra\ bargaining \ra\ low \ra\ exploration \ra\ acceptance); ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement); Kotter. Actions: communicate the why, map affected stakeholders, champions, training \& job aids, pilots, support after go-live, quick wins, \lbl{measure uptake} (usage, feedback). IT project traits: complex, fast-changing tech, intangible, many stakeholders, uncertain, sensitive to requirements.
+\end{itemize}
+
+\hlhighlight{W11--12 · ITSM \& ITIL 4}
+\begin{itemize}
+\item \concept{ITSM} = policies/processes to design, deliver, manage, improve IT services. \concept{Service} = \kh{means of enabling value co-creation} by facilitating outcomes customers want, \kh{without them managing specific costs and risks}. Traits: intangible, outcome-focused, co-created, continuous, risk/cost transfer. Product = owned/licensed, versioned (Photoshop vs Creative Cloud). \lbl{PM vs ITSM:} temporary, unique, create/change, PM/sponsor vs ongoing, reliable delivery, service manager/service desk; link via project-to-service transition, shared change/config/knowledge mgmt, outputs vs outcomes, feedback loop.
+\item \concept{Relationship models:} B2B (efficiency, reliability, SLAs --- supplier\ra council), B2C (UX, convenience), B2G (compliance, long contracts), G2B, \kh{G2C} (council\ra residents: accessibility, accuracy, trust), G2G, C2C, C2B, B2E, D2C, B2M, M2M (IoT), N2C, N2B.
+\item \concept{4 dimensions} (holistic): \lbl{Organisations \& people} (culture, roles, skills --- untrained staff), \lbl{Information \& technology} (data, tools, knowledge base --- inaccurate data, disconnected systems), \lbl{Partners \& suppliers} (contracts, vendor data quality --- supplier SLAs), \lbl{Value streams \& processes} (workflows --- handoffs, procedures).
+\item \concept{SVS:} opportunity/demand \ra\ [guiding principles, governance, service value chain, practices, continual improvement] \ra\ value. \kh{SVS = whole system;} \kh{SVC = operating model inside it.}
+\item \concept{7 guiding principles:} focus on value; \kh{start where you are} (assess/reuse existing before replacing --- fix booking procedures before buying new system); \kh{progress iteratively with feedback} (small steps, pilot, measure); collaborate \& promote visibility; think \& work holistically; keep it simple \& practical; optimise \& automate (optimise before automating).
+\item \concept{SVC 6 activities:} \lbl{Plan} (vision, policies, priorities, targets), \lbl{Improve}, \lbl{Engage} (stakeholders, demand, feedback), \lbl{Design \& Transition} (new/changed services, procedures, training, into live), \lbl{Obtain/Build} (components, tools, suppliers), \lbl{Deliver \& Support} (operate, service desk). Value streams combine activities per outcome.
+\item \concept{34 practices:} 14 general (continual improvement, info security, risk, knowledge, project, relationship...), 17 service (incident, problem, change enablement, service request, service desk, SLM, IT asset, config, release, availability, capacity, continuity), 3 technical (deployment, infra \& platform, software dev).
+\item \concept{Incident mgmt} = \kh{restore normal service ASAP} (identify, log, categorise, prioritise by impact $\times$ urgency, diagnose, resolve/workaround, close). \concept{Problem mgmt} = \kh{find \& remove root cause} of (recurring) incidents: detect, RCA, \lbl{workaround}, \lbl{known error} record, permanent fix via change. \concept{Change enablement:} RFC, assess risk/impact, approve (CAB), schedule, implement, review; standard/normal/emergency changes. \concept{Service desk} = SPOC, logs, fulfils requests, escalates, communicates, updates knowledge base. \concept{Knowledge mgmt:} consistent guidance, self-service FAQs, single source of truth.
+\item \concept{SLM:} define \& agree \lbl{SLAs} with measurable targets, monitor \& report, regular service reviews, improve. Good targets: \kh{availability \%} (e.g.\ 99.9\% during store hours), \kh{response time} (95\% of stock queries $\le$2 s), \kh{incident response/resolution by priority} (P1 $\le$15 min / 4 h), \kh{data freshness} (stock sync $\le$5 min), \kh{CSAT $\ge$4/5}, first-contact resolution \%. Monitor via automated dashboards, monthly reports, quarterly reviews, breach escalation \& service credits. ``Reliable and responsive'' is not measurable. Avoid \lbl{watermelon SLA} (green metrics, unhappy users) --- add experience measures.
+\item \concept{Availability} $=\dfrac{\text{agreed time}-\text{downtime}}{\text{agreed time}}\times100\%$. \lbl{QB Q28:} $(720-6)/720=$ \kh{99.17\% $<$ 99.5\%} \ra\ SLA breached (allowed $0.5\%\times720=3.6$ h). Availability alone misses queue/wait time, usability, support quality \ra\ add job turnaround (95\% start $\le$30 min), consistent-guidance/first-contact resolution, CSAT.
+\item \concept{Continual improvement model:} What is the vision? \ra\ Where are we now? (baseline metrics) \ra\ Where do we want to be? (targets) \ra\ How do we get there? \ra\ Take action \ra\ Did we get there? \ra\ How do we keep momentum? Use data + user feedback before big infrastructure spend (fix scheduling \& instructions first, then measure).
+\item \concept{ITIL adoption challenges:} cultural resistance, trying all 34 practices at once, lack of executive support. Trends: GRC, GenAI, automation (ticket routing, chatbots, predictive monitoring), value demonstration; ServiceNow. ITIL 5 (Jan 2026) builds on ITIL 4.
+\end{itemize}
+
+\hlhighlight{Practice exam · answer skeletons}
+\begin{itemize}
+\item \lbl{1a uni app, Waterfall vs Agile:} planning (upfront vs per sprint), stakeholders (start/end vs every review), change (formal CR vs backlog) \ra\ \kh{Agile/Scrum}: release core (enrolment, ID) before semester, add features through the year with student feedback; keep light governance for privacy/security.
+\item \lbl{1b scope creep:} event registration + navigation added w/o impact assessment or approval, deadline \& budget fixed \ra\ consequences: missed release, overrun, rushed testing/defects, team burnout \ra\ \kh{change control}: log CRs, assess impact, sponsor/CCB decides, defer to later sprint/release via backlog.
+\item \lbl{2a requirements:} why (conflicting expectations, rework, basis for scope/test) + two techniques justified for council (workshops with planning staff/residents to reconcile; observation of current permit process; surveys of residents; prototypes).
+\item \lbl{2b leadership:} one directive style for all = demotivates experts (Herzberg: responsibility/autonomy are motivators), but suits novices \ra\ \kh{situational}: delegate/participative with seniors, directive + coaching + mentoring for new staff \ra\ faster decisions, engagement, skill growth.
+\item \lbl{3a WBS:} purpose (deliverable-based decomposition, 100\% scope) + use scenario: Course module, Assessment engine, Progress tracking, Integration, Testing, Training \ra\ work packages feed estimates, schedule, owners, cost baseline, risk ID.
+\item \lbl{4b Tuckman:} sponsor wrong; new members reset team to forming/storming \ra\ conflict over practices \ra\ intervention: team-charter/working-agreement workshop + buddy onboarding + retro; PM as coach.
+\item \lbl{4c SLM:} two SMART targets (e.g.\ 99.9\% availability 6am--11pm; 95\% stock updates visible $\le$5 min; P1 incident response $\le$15 min) + why stores need them (sales, reorder accuracy) + monitoring (dashboards, monthly SLA report, quarterly review, breach escalation, service credits) + assumptions (trading hours, store count).
+\end{itemize}
+
+\hlhighlight{Exam toolkit · formulas \& quick templates}
+\begin{itemize}
+\item \kh{PERT $(O+4M+P)/6$, $\sigma=(P-O)/6$} \textbullet\ \kh{float = LS$-$ES} \textbullet\ \kh{CV=EV$-$AC} \kh{SV=EV$-$PV} \kh{CPI=EV/AC} \kh{SPI=EV/PV} \kh{EAC=BAC/CPI} \kh{VAC=BAC$-$EAC} \textbullet\ \kh{EMV = P$\times$I} \textbullet\ \kh{Avail.\ = (T$-$down)/T} \textbullet\ weighted score $\Sigma s_iw_i$ \textbullet\ pass rate = passed/total \textbullet\ load = assigned/available \textbullet\ channels $n(n-1)/2$.
+\item \lbl{Risk answer:} risk (cause \ra\ event \ra\ impact on time/cost/quality/reputation) + strategy (avoid/mitigate/transfer/accept/escalate) + concrete action + owner + trigger.
+\item \lbl{Change request answer:} it is scope creep because unapproved + no impact assessment + baseline unchanged \ra\ consequences \ra\ integrated change control/CCB, defer to later release.
+\item \lbl{Methodology answer:} compare on planning, stakeholder involvement, change, documentation, risk \ra\ recommend (often hybrid) \ra\ justify with scenario facts \ra\ one risk + mitigation.
+\item \lbl{Team answer:} diagnose (Tuckman stage / Herzberg / conflict mode / RACI gap) \ra\ intervention \ra\ why it improves performance.
+\end{itemize}
+
+\end{multicols}
+\end{document}
