@@ -23,6 +23,6 @@ Page fonts are set by `\PONE` and `\PTWO` near the top of the `.tex`. After edit
 
 - Layout: run-in paragraphs (no line break per point, items joined by •) at 5.7pt so every line is full.
 - Page 1: W1 projects and success; W2 lifecycle, methodologies, requirements, charter, stakeholders; W3 scope; W3–4 schedule (CPM, PERT, compression); W4 cost and EVM; W5 quality; W6 resources and teams; question-bank answer skeletons Q1–Q24.
-- Page 2: W7 risk (EMV); W8 procurement; W9 leadership, governance, alignment; W10 integration and change management; W11–12 ITSM and ITIL 4 (SLM, availability); question-bank and tutorial cases (Q6, Q26–28, T8–T12); ITSM quick distinctions; practice-exam answer skeletons; formula toolkit and answer pattern.
+- Page 2: W7 risk (EMV); W8 procurement; W9 leadership, governance, alignment; W10 integration and change management; W11–12 ITSM and ITIL 4 (SLM, availability); question-bank answers (Q6, Q26–28); ITSM quick distinctions; practice exam with full answers to all 11 parts, plus likely variants.
 
 Sources: INFO6007 lecture slides W1–W12, tutorial answer sheets, the S2 2026 practice exam and the scenario question bank.
