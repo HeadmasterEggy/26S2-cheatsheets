@@ -38,7 +38,7 @@
 \newcommand{\kh}[1]{{\setlength{\fboxsep}{0.5pt}\colorbox{keyhlcolor}{#1}}}
 \newcommand{\ra}{$\rightarrow$}
 
-\newcommand{\PONE}{\fontsize{6.1pt}{6.45pt}\selectfont}
+\newcommand{\PONE}{\fontsize{6.35pt}{6.7pt}\selectfont}
 \newcommand{\PTWO}{\fontsize{6.8pt}{7.15pt}\selectfont}
 
 \begin{document}
@@ -50,12 +50,6 @@
 %=====================================================================
 \begin{multicols}{3}
 \PONE
-
-\hlhighlight{Exam · format \& how to answer}
-\begin{itemize}
-\item \concept{Format:} 4 scenario Qs $\times$ 15 = 60 marks, 2 h + 10 min reading; each Q has 3 sub-parts (4--6 marks). Scope = lectures + tutorials (readings/guest lecture not directly tested). Hurdle: \kh{$\ge$40\% on exam} and $\ge$50 overall.
-\item \concept{Answer pattern (every sub-part):} \kh{Define \ra\ Apply to scenario} \kh{\ra\ Recommend \ra\ Justify}. Use the case's names/numbers; one point per mark; state \lbl{assumptions}; for calculations show formula, substitution, result, then \lbl{interpret} in words + \lbl{action}. Verbs: \emph{explain} = why/how; \emph{evaluate/critically assess} = strengths + weaknesses + verdict; \emph{recommend} = pick one + justify; \emph{compare} = side-by-side on the named criteria.
-\end{itemize}
 
 \hlhighlight{W1 · Projects, success, triple constraint}
 \begin{itemize}
@@ -198,7 +192,7 @@
 
 \hlhighlight{W11--12 · ITSM \& ITIL 4}
 \begin{itemize}
-\item \concept{ITSM} = policies/processes to design, deliver, manage, improve IT services. \concept{Service} = \kh{means of enabling value co-creation} by facilitating outcomes customers want, \kh{without them managing specific costs and risks}. Traits: intangible, outcome-focused, co-created, continuous, risk/cost transfer. Product = owned/licensed, versioned (Photoshop vs Creative Cloud). \lbl{PM vs ITSM:} temporary, unique, create/change, PM/sponsor vs ongoing, reliable delivery, service manager/service desk; link via project-to-service transition, shared change/config/knowledge mgmt, outputs vs outcomes, feedback loop.
+\item \concept{ITSM} = policies/processes to design, deliver, manage, improve IT services. \concept{Service} = \kh{means of enabling value co-creation} by facilitating outcomes customers want, \kh{without them managing specific costs and risks}. Traits: intangible, outcome-focused, co-created, continuous, risk/cost transfer. Product = owned/licensed, versioned. \lbl{PM vs ITSM:} temporary, unique, create/change, PM/sponsor vs ongoing, reliable delivery, service manager/service desk; link via project-to-service transition, shared change/config/knowledge mgmt, outputs vs outcomes, feedback loop.
 \item \concept{Relationship models:} B2B (efficiency, reliability, SLAs --- supplier\ra council), B2C (UX, convenience), B2G (compliance, long contracts), G2B, \kh{G2C} (council\ra residents: accessibility, accuracy, trust), G2G, C2C, C2B, B2E, D2C, B2M, M2M (IoT), N2C, N2B.
 \item \concept{4 dimensions} (holistic): \lbl{Organisations \& people} (culture, roles, skills --- untrained staff), \lbl{Information \& technology} (data, tools, knowledge base --- inaccurate data, disconnected systems), \lbl{Partners \& suppliers} (contracts, vendor data quality --- supplier SLAs), \lbl{Value streams \& processes} (workflows --- handoffs, procedures).
 \item \concept{SVS:} opportunity/demand \ra\ [guiding principles, governance, service value chain, practices, continual improvement] \ra\ value. \kh{SVS = whole system;} \kh{SVC = operating model inside it.}
@@ -209,7 +203,7 @@
 \item \concept{SLM:} define \& agree \lbl{SLAs} with measurable targets, monitor \& report, regular service reviews, improve. Good targets: \kh{availability \%} (e.g.\ 99.9\% during store hours), \kh{response time} (95\% of stock queries $\le$2 s), \kh{incident response/resolution by priority} (P1 $\le$15 min / 4 h), \kh{data freshness} (stock sync $\le$5 min), \kh{CSAT $\ge$4/5}, first-contact resolution \%. Monitor via automated dashboards, monthly reports, quarterly reviews, breach escalation \& service credits. ``Reliable and responsive'' is not measurable. Avoid \lbl{watermelon SLA} (green metrics, unhappy users) --- add experience measures.
 \item \concept{Availability} $=\dfrac{\text{agreed time}-\text{downtime}}{\text{agreed time}}\times100\%$. \lbl{QB Q28:} $(720-6)/720=$ \kh{99.17\% $<$ 99.5\%} \ra\ SLA breached (allowed $0.5\%\times720=3.6$ h). Availability alone misses queue/wait time, usability, support quality \ra\ add job turnaround (95\% start $\le$30 min), consistent-guidance/first-contact resolution, CSAT.
 \item \concept{Continual improvement model:} What is the vision? \ra\ Where are we now? (baseline metrics) \ra\ Where do we want to be? (targets) \ra\ How do we get there? \ra\ Take action \ra\ Did we get there? \ra\ How do we keep momentum? Use data + user feedback before big infrastructure spend (fix scheduling \& instructions first, then measure).
-\item \concept{ITIL adoption challenges:} cultural resistance, trying all 34 practices at once, lack of executive support. Trends: GRC, GenAI, automation (ticket routing, chatbots, predictive monitoring), value demonstration; ServiceNow. ITIL 5 (Jan 2026) builds on ITIL 4.
+\item \concept{ITIL adoption challenges:} cultural resistance, trying all 34 practices at once, lack of executive support. Automation/AI in ITSM: ticket routing, chatbots/self-service, predictive monitoring, AI-assisted change risk assessment.
 \end{itemize}
 
 \hlhighlight{Practice exam · answer skeletons}
@@ -229,6 +223,7 @@
 \item \lbl{Risk answer:} risk (cause \ra\ event \ra\ impact on time/cost/quality/reputation) + strategy (avoid/mitigate/transfer/accept/escalate) + concrete action + owner + trigger.
 \item \lbl{Change request answer:} it is scope creep because unapproved + no impact assessment + baseline unchanged \ra\ consequences \ra\ integrated change control/CCB, defer to later release.
 \item \lbl{Methodology answer:} compare on planning, stakeholder involvement, change, documentation, risk \ra\ recommend (often hybrid) \ra\ justify with scenario facts \ra\ one risk + mitigation.
+\item \lbl{Every sub-part:} define \ra\ apply to scenario (use its names/numbers) \ra\ recommend \ra\ justify; state assumptions; for calculations give formula, working, result, interpretation, action.
 \item \lbl{Team answer:} diagnose (Tuckman stage / Herzberg / conflict mode / RACI gap) \ra\ intervention \ra\ why it improves performance.
 \end{itemize}
 
