@@ -25,4 +25,6 @@ Page fonts are set by `\PONE` and `\PTWO` near the top of the `.tex`. After edit
 - Page 1: W1 projects and success; W2 lifecycle, methodologies, requirements, charter, stakeholders; W3 scope; W3–4 schedule (CPM, PERT, compression); W4 cost and EVM; W5 quality; W6 resources and teams; question-bank answer skeletons Q1–Q24.
 - Page 2: W7 risk (EMV); W8 procurement; W9 leadership, governance, alignment; W10 integration and change management; W11–12 ITSM and ITIL 4 (SLM, availability); question-bank answers (Q6, Q26–28); ITSM quick distinctions; practice exam with full answers to all 11 parts, plus likely variants.
 
+Full blog notes (W1–W13 lecture summaries, W2–W5 tutorials, practice exam and question-bank solutions) are in [`INFO6007/notes/`](INFO6007/notes/).
+
 Sources: INFO6007 lecture slides W1–W12, tutorial answer sheets, the S2 2026 practice exam and the scenario question bank.
